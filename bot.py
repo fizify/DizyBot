@@ -30,7 +30,7 @@ class Main(commands.Bot):
 ID: {self.user.id}\nVersion: {discord.__version__}\n''')
 		await self.change_presence(
 			activity=discord.Streaming(
-				name='Rick Astley - Never Gonna Give You Up', 
+				name='Rick Astley - Never Gonna Give You Up!', 
 				url='https://twitch.tv/xouranl')
 			)
 	    
