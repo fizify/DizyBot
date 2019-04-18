@@ -1,0 +1,8 @@
+discord.py
+aiohttp
+beautifulsoup4
+
+git+https://github.com/Gorialis/jishaku@master#egg=jishaku
+
+git+https://github.com/EvieePy/Wavelink@master#egg=wavelink
+
