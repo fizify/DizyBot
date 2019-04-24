@@ -38,7 +38,7 @@ async def screenshot(self, ctx, site):
 		#check if nsfw in non nsfw channel
 		if not ctx.channel.is_nsfw():
 			purify= 'https://www.picpurify.com/analyse.php'
-			data= {'API_KEY': vars.picpurify_key,
+			data= {'API_KEY': values.picpurify_key,
 				'url_image': site if is_img else base+site,
 				'task'     : 'porn_detection,suggestive_nudity_detection'
 				}
@@ -57,11 +57,11 @@ async def screenshot(self, ctx, site):
 
 
 		f= discord.File(buffer,  filename="file.png")
-		m= await self.bot.get_channel(vars.dump_channel).send(file=f)
+		m= await self.bot.get_channel(values.dump_channel).send(file=f)
 		
 		
-	e=discord.Embed(color=vars.Chrome[2])
-	e.set_author(name='Chrome screenshot',icon_url=vars.Chrome[2])
+	e=discord.Embed(color=values.Chrome[2])
+	e.set_author(name='Chrome screenshot',icon_url=values.Chrome[2])
 	e.description= site
 	e.set_image(url= m.attachments[0].url)
 	

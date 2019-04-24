@@ -3,6 +3,7 @@ from discord.ext import commands
 
 from utils import *
 
+
 from utils.paginator import paginate
 
 
@@ -17,7 +18,7 @@ async def define(self, ctx, *,query):
 	
 	base='https://od-api.oxforddictionaries.com/api/v1/search/en'
 	base2='https://od-api.oxforddictionaries.com/api/v1/entries/en/'
-	headers={'app_id':vars.oxford_id, 'app_key': vars.oxford_key }
+	headers={'app_id':values.oxford_id, 'app_key': values.oxford_key }
 	params={'q':query}
 	
 	async with ctx.channel.typing():
@@ -41,10 +42,10 @@ async def define(self, ctx, *,query):
 		except:audio   = ''
 		
 		
-		embed=discord.Embed(color=vars.Dict[2])
-		embed.set_author( name='Dictionary Search', icon_url= vars.Dict[1])
+		embed=discord.Embed(color=values.Dict[2])
+		embed.set_author( name='Dictionary Search', icon_url= values.Dict[1])
 	
-		embed.description=( f'**[{word}]({link})**' + '\n'+ f'{vars.Link} [Link]({link})'+'\n'+ f'[{phonetic}]({audio})' + f'[🔉]({audio})') 
+		embed.description=( f'**[{word}]({link})**' + '\n'+ f'{values.Link} [Link]({link})'+'\n'+ f'[{phonetic}]({audio})' + f'[🔉]({audio})') 
 		
 		for lexentry in result['lexicalEntries']:
 			category   = lexentry['lexicalCategory']

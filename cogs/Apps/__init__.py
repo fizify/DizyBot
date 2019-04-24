@@ -1,6 +1,5 @@
 
 from discord.ext import commands
-from discord.ext.commands.errors import CommandError
 
 
 def setup(bot):

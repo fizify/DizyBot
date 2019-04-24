@@ -16,7 +16,7 @@ async def _map(self, ctx, *,place):
 	params= { 'center': place,
 			'size'    :'800x800',
 			'maptype' :'roadmap',
-			'key'     :vars.gmaps_key,
+			'key'     :values.gmaps_key,
 			'format'  :'png32'
 			}
 	
@@ -24,13 +24,13 @@ async def _map(self, ctx, *,place):
 		if not resp.status == 200: raise HTTPError(resp.status)
 		buffer =io.BytesIO(await resp.read())
 		
-	dump= self.bot.get_channel(vars.dump_channel)
+	dump= self.bot.get_channel(values.dump_channel)
 	link="http://maps.google.com/?q="+place.replace(' ','+')
 	f= discord.File(buffer, filename= place.replace(' ','_')+'.png')
-	e= discord.Embed(color= vars.Maps[2])
-	e.description= f"{vars.Link} [Link]({link}) \n"
+	e= discord.Embed(color= values.Maps[2])
+	e.description= f"{values.Link} [Link]({link}) \n"
 	e.description+= f"**[{place.capitalize()}]({link})**"
-	e.set_author(name= 'Maps Search', icon_url= vars.Maps[1])
+	e.set_author(name= 'Maps Search', icon_url= values.Maps[1])
 	
 	m= await dump.send(file= f)
 	img= m.attachments[0].url

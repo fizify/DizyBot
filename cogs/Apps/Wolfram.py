@@ -10,8 +10,8 @@ from utils.paginator import paginate
 
 QUERY= "http://api.wolframalpha.com/v2/"
 
-embed= discord.Embed(color=vars.Wolfram[2])
-embed.set_author(name='WolframAlpha', icon_url=vars.Wolfram[1])
+embed= discord.Embed(color=values.Wolfram[2])
+embed.set_author(name='WolframAlpha', icon_url=values.Wolfram[1])
 
 @commands.command(aliases=['wolf','wr'], invoke_without_subcommand=True)
 @commands.cooldown(1,10, commands.BucketType.guild)
@@ -20,7 +20,7 @@ async def wolfram(self, ctx, *,query):
 	
 	request='simple'
 	params={'i':query ,
-		'appid': vars.wolfram_key
+		'appid': values.wolfram_key
 		}
 	
 	url= QUERY+request
@@ -31,7 +31,7 @@ async def wolfram(self, ctx, *,query):
 		
 	file=discord.File(buffer, filename='wolf.png')
 	
-	m = await self.bot.get_channel(vars.dump_channel).send(file=file)
+	m = await self.bot.get_channel(values.dump_channel).send(file=file)
 	img= m.attachments[0].url
 	
 	embed.set_image(url= img)

@@ -17,17 +17,17 @@ async def lyrics(self, ctx, *,query):
 	embeds=[]
 	
 	def make_embed(text):
-		embed= discord.Embed(color=vars.Genius[2])
-		embed.set_author(name= 'Genius Lyrics Search', icon_url= vars.Genius[1])
+		embed= discord.Embed(color=values.Genius[2])
+		embed.set_author(name= 'Genius Lyrics Search', icon_url= values.Genius[1])
 		
-		embed.description= f"**[{result['full_title']}]({result['url']})** \n{vars.Link} [Link]({result['url']})"
+		embed.description= f"**[{result['full_title']}]({result['url']})** \n{values.Link} [Link]({result['url']})"
 		embed.set_image(url= result['header_image_url'])
 		embed.description+= '```' + text + '```'
 		
 		embeds.append(embed)
 	
 	song=query.replace(' ','%20')
-	header={"Authorization":vars.genius_key ,"User-Agent":"Mozila/5.0"}
+	header={"Authorization":values.genius_key ,"User-Agent":"Mozila/5.0"}
 	
 	async with ctx.channel.typing():
 		async with self.bot.session.get(f"https://api.genius.com/search?q={song}", headers=header) as resp:

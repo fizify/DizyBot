@@ -21,8 +21,8 @@ async def urban(self, ctx, *,query):
 		
 	for desc in searches:
 		
-		embed=discord.Embed(color=vars.Urban[2])
-		embed.set_author(name='UrbanDict Search', icon_url=vars.Urban[1])
+		embed=discord.Embed(color=values.Urban[2])
+		embed.set_author(name='UrbanDict Search', icon_url=values.Urban[1])
 		
 		try:
 			term       = desc['term'].replace('+',' ').capitalize()
@@ -32,7 +32,7 @@ async def urban(self, ctx, *,query):
 		except: raise NoResultsFound(query)
 		
 		embed.description= (f'**[{term}]({link})**'+ '\n'+
-							f'{vars.Link} [Link]({link})'+'\n'+
+							f'{values.Link} [Link]({link})'+'\n'+
 							f'**{definition}**'+'\n'+
 							f'\t{example}')
 		embeds.append(embed)
