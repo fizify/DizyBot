@@ -6,7 +6,7 @@ import asyncio, aiohttp
 
 TOKEN = "NDc1MTExNzI3NDMyODU5Njg0.XLgVTg.uIBM9lw5XgRPJH38DNP9kgnS6XE" #DizyBot
 
-PREFIXES = [',,']
+PREFIXES = ['..']
 
 EXTENSIONS = ['jishaku',
 			'cogs.Admin',
